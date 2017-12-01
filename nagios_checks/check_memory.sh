@@ -9,13 +9,12 @@ crit=$2
 [[ -z $2 ]] && echo "UNKNOWN- Please specify Warn and Crit thresholds" && exit 3
 
 # Collect memory statistics
-mem_stats=$(free | grep Mem)
 mem_total=$(free | grep Mem | awk '{print $2}')
 mem_used=$(free | grep Mem | awk '{print $3}')
 mem_free=$(free | grep Mem | awk '{print $4}')
 
 # Generate output
-output="Memory stats: $mem_stats | Total=$mem_total, User=$mem_used, Free=$mem_free"
+output="Memory stats: Total=$mem_total, User=$mem_used, Free=$mem_free"
 
 # Test values against thresholds
 if [[ $mem_free -gt $warn ]]
