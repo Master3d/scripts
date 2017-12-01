@@ -5,8 +5,8 @@
 # $2 is for critical
 warn=$1
 crit=$2
-[[ -z $1 ]] && echo "UNKNOWN- Please specify Warn and Crit thresholds" && exit 3
-[[ -z $2 ]] && echo "UNKNOWN- Please specify Warn and Crit thresholds" && exit 3
+[[ -z $1 ]] && echo "UNKNOWN - Please specify Warn and Crit thresholds" && exit 3
+[[ -z $2 ]] && echo "UNKNOWN - Please specify Warn and Crit thresholds" && exit 3
 
 # Collect memory statistics
 mem_total=$(free | grep Mem | awk '{print $2}')
@@ -23,13 +23,13 @@ then
     exit 0
 elif [[ $mem_free -le $warn ]] && [[ $mem_free -gt $crit ]]
 then
-    echo "WARNING- $output"
+    echo "WARNING - $output"
     exit 1
 elif [[ $mem_free -lt $crit ]]
 then
-    echo "CRITICAL- $output"
+    echo "CRITICAL - $output"
     exit 2
 else
-    echo "UNKNOWN- $output"
+    echo "UNKNOWN - $output"
     exit 3
 fi
