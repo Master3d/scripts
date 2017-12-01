@@ -1,3 +1,4 @@
+cat file_modif_date.sh
 #!/bin/bash
 
 ### Check a file's last modification date
@@ -15,7 +16,9 @@ crit=$3
 time_now=$(date +%s)
 file_date=$(stat -c %Y $file)
 diff=$((time_now - file_date))
-output="Modified $diff sec. ago"
+#output="Modified $diff sec. ago"
+time_past=$(printf '%dh:%dm:%ds\n' $(($diff/3600)) $(($diff%3600/60)) $(($diff%60)))
+output="Modified $time_past ago"
 
 # Test values against thresholds
 if [[ $diff -lt $warn ]]
