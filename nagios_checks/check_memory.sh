@@ -19,7 +19,7 @@ output="Memory stats: Total=$mem_total, User=$mem_used, Free=$mem_free"
 # Test values against thresholds
 if [[ $mem_free -gt $warn ]]
 then
-    echo "OK- $output"
+    echo "OK - $output"
     exit 0
 elif [[ $mem_free -le $warn ]] && [[ $mem_free -gt $crit ]]
 then

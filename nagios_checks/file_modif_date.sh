@@ -29,7 +29,7 @@ elif [[ $diff -ge $warn ]] && [[ $diff -lt $crit ]]
 then
     echo "WARNING - $output"
     exit 1
-elif [[ $diff -gt $crit ]]
+elif [[ $diff -ge $crit ]]
 then
     echo "CRITICAL - $output"
     exit 2
